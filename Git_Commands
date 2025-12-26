@@ -1,0 +1,99 @@
+Git Commands Cheat Sheet
+
+Basic Commands
+
+git init  : Initialize a new Git repository
+git clone <repo_url>	: Clone an existing repository
+git status   : Show status of working directory
+git add <file>	: Stage file(s) for commit
+git add .  : 	Stage all changes
+git commit -m "message"	 :  Commit staged changes with a message
+git commit -am "message"	: Stage tracked files and commit in one step
+git diff	: Show changes not staged for commit
+git diff --staged	: Show staged changes
+git log	: Show commit history
+git log --oneline --graph --all	 : Visual commit history
+
+Branching Commands
+git branch : List all branches
+git branch <branch_name>	: Create a new branch
+git checkout <branch_name>	: Switch to branch
+git switch <branch_name>	: Alternative to checkout
+git checkout -b <branch_name>	: Create & switch to branch
+git switch -c <branch_name>	: Alternative for creating & switching
+git branch -d <branch_name>	: Delete a local branch
+git branch -D <branch_name>	 : Force delete branch
+git branch -r	  :  List remote branches
+git branch -a	:  List local + remote branches
+
+Merging Commands
+
+git merge <branch>	: Merge a branch into current branch
+git merge --no-ff <branch>	: Merge with a merge commit (no fast-forward)
+git rebase <branch>	:  Reapply commits on top of another branch
+git rebase -i <commit>	: Interactive rebase to edit commits
+git mergetool	:  Open GUI merge tool to resolve conflicts
+
+Undoing / Reset Commands
+
+git reset <file>	:  Unstage file
+git reset --soft <commit>	: Move HEAD to commit, keep changes staged
+git reset --mixed <commit> : Move HEAD to commit, keep changes unstaged
+git reset --hard <commit> : 	Move HEAD to commit, discard changes
+git checkout -- <file>	: Discard changes in working directory
+git revert <commit>	: Revert a commit by creating a new commit
+
+Remote Commands
+
+git remote -v	:  List remote repositories
+git remote add <name> <url>	:  Add a remote repository
+git fetch <remote>	:  Fetch changes from remote without merging
+git pull	:  Fetch + merge from remote
+git pull --rebase	:  Fetch + rebase from remote
+git push <remote> <branch>	:  Push local branch to remote
+git push -u <remote> <branch>	:  Push & set upstream tracking
+git push --force	:  Force push changes (dangerous!)
+git push --all	:  Push all branches
+git push --tags	:  Push all tags
+
+Tagging Commands
+
+git tag	:  List all tags
+git tag <tag_name> :  Create a lightweight tag
+git tag -a <tag_name> -m "message"	: Create annotated tag
+git show <tag_name>	:  tag info
+git push <remote> <tag_name> : Push a specific tag
+git push --tags	:  Push all tags
+
+Stashing Commands
+
+git stash	: Stash changes
+git stash list	: Show stash list
+git stash apply	: Apply latest stash
+git stash apply stash@{n}	: Apply specific stash
+git stash pop	: Apply + drop stash
+git stash drop stash@{n}	: Delete a specific stash
+git stash clear	:  Delete all stashes
+
+Viewing History / Logs
+
+git log	:  Show commit history
+git log --oneline :  Condensed commit history
+git log --graph --decorate --all :  Visual graph
+git show <commit>	:  Show commit details
+git blame <file>: Show last change for each line
+git reflog	:  Show history of HEAD changes
+
+Advanced / Useful Commands
+
+git cherry-pick <commit>	:  Apply a commit from another branch
+git bisect start	: Start bisect to find bug commit
+git bisect good/bad	: Mark commits during bisect
+git clean -f	:  Remove untracked files
+git clean -fd	: Remove untracked files & directories
+git rm <file> :	Delete file from repo & working dir
+git mv <old> <new>	: Rename file in repo
+git config --global user.name "Name"	:  Set Git username
+git config --global user.email "email"	:  Set Git email
+git config --list	:  Show Git config
+git shortlog	:  Summarize commits by author
